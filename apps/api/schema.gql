@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Event {
+  id: String!
+  title: String!
+}
+
+type Query {
+  events: [Event!]!
+}
