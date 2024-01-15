@@ -7,9 +7,74 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Event {
-  id    Int    @id @default(autoincrement())
-  title String
+model Cinema {
+  id      Int     @id @default(autoincrement())
+  name    String?
+  halls   Hall[]
+  event   Event?  @relation(fields: [eventId], references: [id])
+  eventId Int?
+}
 
+model Hall {
+  id       Int     @id @default(autoincrement())
+  cinema   Cinema? @relation(fields: [cinemaId], references: [id])
+  cinemaId Int?
+  events   Event[]
+}
+
+model Event {
+  id      Int      @id @default(autoincrement())
+  cinema  Cinema[]
+  hall    Hall?    @relation(fields: [hallId], references: [id])
+  hallId  Int?
+  movie   Movie?   @relation(fields: [movieId], references: [id])
+  movieId Int?
+}
+
+model Movie {
+  id          Int                  @id @default(autoincrement())
+  name        String?
+  description String?
+  rating      Float?
+  duration    Int?
+  media       String?
+  tags        TagsOnMovies[]
+  categories  CategoriesOnMovies[]
+  event       Event[]
+}
+
+model Category {
+  id     Int                  @id @default(autoincrement())
+  name   String?
+  movies CategoriesOnMovies[]
+}
+
+model CategoriesOnMovies {
+  id         Int      @id @default(autoincrement())
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+  movie      Movie    @relation(fields: [movieId], references: [id])
+  movieId    Int
+}
+
+model TagsOnMovies {
+  id      Int   @id @default(autoincrement())
+  tag     Tag   @relation(fields: [tagId], references: [id])
+  tagId   Int
+  movie   Movie @relation(fields: [movieId], references: [id])
+  movieId Int
+}
+
+model Tag {
+  id     Int            @id @default(autoincrement())
+  name   String
+  movies TagsOnMovies[]
+}
+
+model HeroSlide {
+  id        Int      @id @default(autoincrement())
+  title     String?
+  subtitle  String?
+  media     String?
   createdAt DateTime @default(now())
 }

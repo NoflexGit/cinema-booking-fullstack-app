@@ -5,8 +5,17 @@
 type Event {
   id: String!
   title: String!
+  description: String!
+  media: String!
+}
+
+type Movie {
+  id: String!
+  name: String!
 }
 
 type Query {
   events: [Event!]!
+  eventsByTag(tag: String!): [Event!]!
+  moviesByTag(tag: String!): [Movie!]!
 }

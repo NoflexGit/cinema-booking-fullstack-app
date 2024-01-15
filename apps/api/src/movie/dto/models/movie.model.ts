@@ -1,16 +1,10 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class Event {
+export class Movie {
   @Field()
   id: string;
 
   @Field()
-  title: string;
-
-  @Field()
-  description: string;
-
-  @Field()
-  media: string;
+  name: string;
 }
