@@ -8,26 +8,30 @@ datasource db {
 }
 
 model Cinema {
-  id      Int     @id @default(autoincrement())
-  name    String?
-  halls   Hall[]
-  event   Event?  @relation(fields: [eventId], references: [id])
-  eventId Int?
+  id        Int     @id @default(autoincrement())
+  name      String?
+  address   String?
+  city      String?
+  longitude Float?
+  latitude  Float?
+  media     String?
+  halls     Hall[]
 }
 
 model Hall {
   id       Int     @id @default(autoincrement())
+  name     String?
   cinema   Cinema? @relation(fields: [cinemaId], references: [id])
   cinemaId Int?
+  media    String?
   events   Event[]
 }
 
 model Event {
-  id      Int      @id @default(autoincrement())
-  cinema  Cinema[]
-  hall    Hall?    @relation(fields: [hallId], references: [id])
+  id      Int    @id @default(autoincrement())
+  hall    Hall?  @relation(fields: [hallId], references: [id])
   hallId  Int?
-  movie   Movie?   @relation(fields: [movieId], references: [id])
+  movie   Movie? @relation(fields: [movieId], references: [id])
   movieId Int?
 }
 
@@ -41,6 +45,8 @@ model Movie {
   tags        TagsOnMovies[]
   categories  CategoriesOnMovies[]
   event       Event[]
+  CartItem    CartItem[]
+  OrderItem   OrderItem[]
 }
 
 model Category {
@@ -69,6 +75,64 @@ model Tag {
   id     Int            @id @default(autoincrement())
   name   String
   movies TagsOnMovies[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  name      String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  role      Role     @default(USER)
+  cart      Cart?
+  orders    Order[]
+}
+
+model Cart {
+  id        Int        @id @default(autoincrement())
+  user      User       @relation(fields: [userId], references: [id])
+  userId    Int        @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  items     CartItem[]
+}
+
+model CartItem {
+  id        Int      @id @default(autoincrement())
+  cart      Cart     @relation(fields: [cartId], references: [id])
+  cartId    Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  quantity  Int
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+}
+
+model Order {
+  id        Int         @id @default(autoincrement())
+  user      User        @relation(fields: [userId], references: [id])
+  userId    Int
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  items     OrderItem[]
+}
+
+model OrderItem {
+  id        Int      @id @default(autoincrement())
+  order     Order    @relation(fields: [orderId], references: [id])
+  orderId   Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  quantity  Int
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model HeroSlide {

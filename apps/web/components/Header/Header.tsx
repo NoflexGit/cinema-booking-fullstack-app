@@ -29,6 +29,11 @@ export const Header = () => {
                   New
                 </Link>
               </li>
+              <li>
+                <Link className="text-white" href="/cinemas">
+                  Cinemas
+                </Link>
+              </li>
             </ul>
           </div>
           <Link className="text-white" href="/login">

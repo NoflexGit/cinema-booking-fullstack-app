@@ -17,10 +17,10 @@ export default async function ServerSide() {
   });
 
   return (
-    <main style={{ maxWidth: 1200, marginInline: "auto", padding: 20 }}>
+    <div style={{ maxWidth: 1200, marginInline: "auto", padding: 20 }}>
       {data.events.map((event: any) => {
         return <div key={event.id}>{event.title}</div>;
       })}
-    </main>
+    </div>
   );
 }
