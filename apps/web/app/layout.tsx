@@ -1,13 +1,13 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import { ApolloWrapper } from "../appolo/AppoloWrapper";
 import { Header } from "../components/Header";
 
-const roboto = Roboto({
+const urbanist = Urbanist({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 export const metadata: Metadata = {
   title: "Cinema Fullstack App",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
   <ApolloWrapper>
     <html lang="en">
-      <body className={`${roboto.className} bg-gray-900`}>
+      <body className={`${urbanist.className} bg-gray-900`}>
         <Header />
         <main>{children}</main>
         <footer></footer>
