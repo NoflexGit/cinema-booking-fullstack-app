@@ -20,7 +20,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
       <body className={`${urbanist.className} bg-gray-900`}>
         <Header />
         <main>{children}</main>
-        <footer></footer>
       </body>
     </html>
   </ApolloWrapper>

@@ -1,20 +1,14 @@
-import React from "react";
 import Link from "next/link";
+import { Logo } from "@/components/Logo";
 
 export const Header = () => {
   return (
     <header className="w-full border-b border-slate-600">
       <div className="container mx-auto">
-        <nav className="flex py-4 px-8 rounded-xl shadow-lg justify-between items-center">
+        <nav className="flex py-4 rounded-xl shadow-lg justify-between items-center">
           <div className="flex gap-12 items-center">
-            <Link
-              className="text-2xl font-extrabold tracking-widest text-center text-white uppercase"
-              href="/"
-            >
-              <span className="text-indigo-400">n</span>
-              <span className="text-purple-400">o</span>
-              <span className="text-pink-400">m</span>
-              <span className="text-rose-300">o</span>
+            <Link className="" href="/">
+              <Logo size="sm" />
             </Link>
             <ul className="flex space-x-6">
               <li>
@@ -30,11 +24,6 @@ export const Header = () => {
               <li>
                 <Link className="text-white" href="/popular">
                   Popular
-                </Link>
-              </li>
-              <li>
-                <Link className="text-white" href="/popular">
-                  New
                 </Link>
               </li>
               <li>
