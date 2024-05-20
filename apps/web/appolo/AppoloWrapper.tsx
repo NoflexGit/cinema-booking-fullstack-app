@@ -11,7 +11,7 @@ import { PropsWithChildren } from "react";
 
 const makeClient = () => {
   const httpLink = new HttpLink({
-    uri: process.env.GRAPHQL_ENDPOINT,
+    uri: "http://localhost:6969/graphql",
   });
 
   return new NextSSRApolloClient({

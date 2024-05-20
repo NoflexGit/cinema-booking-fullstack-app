@@ -32,6 +32,7 @@ type Query {
   events: [Event!]!
   eventsByTag(tag: String!): [Event!]!
   moviesByTag(tag: String!): [Movie!]!
+  movies: [Movie!]!
   cinemas: [Cinema!]!
   cinema(id: Float!): Cinema!
   halls: [Hall!]!

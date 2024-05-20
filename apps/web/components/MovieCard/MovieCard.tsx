@@ -1,14 +1,39 @@
 import Image from "next/image";
+import { Button } from "@/components/shared/Button";
+import { Label } from "@/components/shared/Label";
 
-export const MovieCard = () => {
+type Props = {
+  id: string;
+  title: string;
+  genre: string;
+  price: number;
+  imageUrl: string;
+};
+
+export const MovieCard = ({ id, title, genre, price, imageUrl }: Props) => {
+  const handleBuyTicket = () => {
+    console.log("Buy ticket", id);
+  };
+
   return (
-    <div className="h-[400px] w-[250px] bg-slate-700 rounded-2xl overflow-hidden">
+    <div className="bg-slate-700 h-[370px] rounded-2xl overflow-hidden relative">
       <Image
-        width="300"
-        height="450"
-        src="https://gbzjzlnzcwwsiqtrxaxt.supabase.co/storage/v1/object/sign/movieCovers/moonlight.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtb3ZpZUNvdmVycy9tb29ubGlnaHQuanBlZyIsImlhdCI6MTcxNjEzNjQ1MCwiZXhwIjoyMDMxNDk2NDUwfQ.mlCT114TyREzgVvUDFmSgIzjAm4adgrPOV8hwNlXVCg&t=2024-05-19T16%3A34%3A10.144Z"
-        alt="Moonlight"
+        width="250"
+        height="300"
+        src={imageUrl}
+        alt={title}
+        className="object-cover w-full h-full absolute inset-0"
       />
+      <div className="p-4 absolute bottom-0 left-0 w-full backdrop-blur-sm bg-gradient-to-t from-gray-800">
+        <h3 className="text-white text-lg">{title}</h3>
+        <Label size="sm">{genre}</Label>
+        <div className="flex justify-between items-center mt-4">
+          <span className="text-white">from {price}</span>
+          <Button size="sm" view="primary" onClick={handleBuyTicket}>
+            Buy Tickets
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

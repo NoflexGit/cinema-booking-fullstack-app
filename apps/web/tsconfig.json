@@ -8,7 +8,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/constants": ["constants/index.ts"],
+      "@/appolo/*": ["appolo/*"],
     }
   },
   "include": [

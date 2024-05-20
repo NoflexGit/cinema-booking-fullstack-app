@@ -5,6 +5,10 @@ import { PrismaService } from '../prisma/prisma.service';
 export class MovieService {
   constructor(private prisma: PrismaService) {}
 
+  async getMovies() {
+    return this.prisma.movie.findMany();
+  }
+
   async getMoviesByTag(tag: string) {
     return this.prisma.movie.findMany({
       where: {

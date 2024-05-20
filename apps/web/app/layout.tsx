@@ -1,8 +1,8 @@
 import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
-import { ApolloWrapper } from "../appolo/AppoloWrapper";
-import { Header } from "../components/Header";
+import { ApolloWrapper } from "@/appolo/AppoloWrapper";
+import { Header } from "@/components/Header";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
