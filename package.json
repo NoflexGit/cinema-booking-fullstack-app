@@ -5,6 +5,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "test": "turbo test",
+    "cy:open": "turbo cy:open",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

@@ -5,8 +5,8 @@ export const Header = () => {
   return (
     <header className="w-full border-b border-slate-600">
       <div className="container mx-auto px-4">
-        <nav className="flex rounded-xl shadow-lg justify-between items-center py-4">
-          <div className="flex gap-12 items-center">
+        <nav className="flex items-center justify-between rounded-xl py-4 shadow-lg">
+          <div className="flex items-center gap-12">
             <Link className="" href="/">
               <Logo size="sm" />
             </Link>
@@ -33,7 +33,11 @@ export const Header = () => {
               </li>
             </ul>
           </div>
-          <Link className="text-white" href="/login">
+          <Link
+            className="text-white"
+            href="/login"
+            data-test-id="login-button"
+          >
             Login
           </Link>
         </nav>

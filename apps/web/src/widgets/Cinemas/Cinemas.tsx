@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -30,7 +29,7 @@ export const Cinemas = ({ cinemas }: Props) => {
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 opacity-60" />
               <div className="absolute bottom-0 left-0 z-10 p-4">
                 <h4 className="text-lg text-white">{cinema.name}</h4>
-                <p className="mt-2 text-sm text-gray-300">{cinema.address}</p>
+                <p className="mt-2 text-sm text-slate-300">{cinema.address}</p>
               </div>
             </Link>
           </div>

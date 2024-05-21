@@ -8,9 +8,11 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/constants": ["constants/index.ts"],
-      "@/appolo/*": ["appolo/*"],
+      "@/components/*": ["src/components/*"],
+      "@/constants": ["src/constants/index.ts"],
+      "@/appolo/*": ["src/appolo/*"],
+      "@/services/*": ["src/services/*"],
+      "@/widgets/*": ["src/widgets/*"],
     }
   },
   "include": [

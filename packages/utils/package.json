@@ -6,9 +6,7 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "dependencies": {
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.3.0"

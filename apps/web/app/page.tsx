@@ -1,42 +1,12 @@
-import { MovieScheduleByDay } from "../widgets/MovieScheduleByDay";
-import { Cinemas } from "../widgets/Cinemas";
-import { gql } from "@apollo/client";
-import { getClient } from "@/appolo/client";
-
-import "swiper/css";
-import "swiper/css/autoplay";
-import "swiper/css/effect-fade";
-
-const GET_MOVIES = gql`
-  {
-    movies {
-      id
-      name
-      media
-      categories {
-        id
-        name
-      }
-    }
-    cinemas {
-      id
-      name
-      address
-      longitude
-      latitude
-      media
-      halls {
-        id
-        name
-      }
-    }
-  }
-`;
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
+import { getMoviesData } from '@/services/movies';
+import { MovieScheduleByDay } from '@/widgets/MovieScheduleByDay';
+import { Cinemas } from '@/widgets/Cinemas';
 
 const IndexPage = async () => {
-  const { data } = await getClient().query<any>({
-    query: GET_MOVIES,
-  });
+  const data = await getMoviesData();
 
   return (
     <div className="space-y-8">
