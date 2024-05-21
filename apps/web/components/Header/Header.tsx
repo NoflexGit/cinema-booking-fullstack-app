@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { Logo } from "@/components/Logo";
+import Link from 'next/link';
+import { Logo } from '@/components/Logo';
 
 export const Header = () => {
   return (
     <header className="w-full border-b border-slate-600">
-      <div className="container mx-auto">
-        <nav className="flex py-4 rounded-xl shadow-lg justify-between items-center">
+      <div className="container mx-auto px-4">
+        <nav className="flex rounded-xl shadow-lg justify-between items-center py-4">
           <div className="flex gap-12 items-center">
             <Link className="" href="/">
               <Logo size="sm" />

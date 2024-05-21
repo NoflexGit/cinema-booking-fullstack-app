@@ -1,5 +1,4 @@
-import { getClient } from "../../appolo/client";
-import React from "react";
+import { getClient } from "@/appolo/client";
 import { gql } from "@apollo/client";
 
 const query = gql`

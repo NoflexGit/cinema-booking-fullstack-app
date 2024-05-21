@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/shared/Button";
 import { Label } from "@/components/shared/Label";
@@ -5,12 +7,21 @@ import { Label } from "@/components/shared/Label";
 type Props = {
   id: string;
   title: string;
-  genre: string;
+  categories: Array<{
+    id: string;
+    name: string;
+  }>;
   price: number;
   imageUrl: string;
 };
 
-export const MovieCard = ({ id, title, genre, price, imageUrl }: Props) => {
+export const MovieCard = async ({
+  id,
+  title,
+  categories,
+  price,
+  imageUrl,
+}: Props) => {
   const handleBuyTicket = () => {
     console.log("Buy ticket", id);
   };
@@ -26,9 +37,13 @@ export const MovieCard = ({ id, title, genre, price, imageUrl }: Props) => {
       />
       <div className="p-4 absolute bottom-0 left-0 w-full backdrop-blur-sm bg-gradient-to-t from-gray-800">
         <h3 className="text-white text-lg">{title}</h3>
-        <Label size="sm">{genre}</Label>
+        {categories.map((category) => (
+          <Label key={category.id} className="mt-2" size="sm">
+            {category.name}
+          </Label>
+        ))}
         <div className="flex justify-between items-center mt-4">
-          <span className="text-white">from {price}</span>
+          <span className="text-white">from ${price}</span>
           <Button size="sm" view="primary" onClick={handleBuyTicket}>
             Buy Tickets
           </Button>

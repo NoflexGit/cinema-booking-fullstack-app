@@ -1,28 +1,39 @@
+"use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { MovieCard } from "@/components/MovieCard";
 import { MOVIE_SLIDER_BREAKPOINTS } from "@/constants";
-import { gql, useQuery } from "@apollo/client";
 
-const GET_MOVIES = gql`
-  {
-    movies {
-      id
-      name
-    }
-  }
-`;
+type Props = {
+  movies: Array<{
+    id: string;
+    name: string;
+    media: string;
+    categories: Array<{
+      id: string;
+      name: string;
+    }>;
+  }>;
+};
 
-export const MovieScheduleByDay = () => {
-  const { loading, error, data } = useQuery(GET_MOVIES);
-
+export const MovieScheduleByDay = ({ movies }: Props) => {
   return (
-    <section className="container mx-auto">
-      <h3 className="text-white text-xl">Popular</h3>
+    <section className="container mx-auto px-4">
+      <h3 className="text-white text-xl font-semibold">In our cinemas</h3>
       <div className="mt-4">
         <Swiper breakpoints={MOVIE_SLIDER_BREAKPOINTS}>
-          <SwiperSlide>
-            <MovieCard />
-          </SwiperSlide>
+          {movies.map((movie: any) => (
+            <SwiperSlide key={movie.id}>
+              <MovieCard
+                id={movie.id}
+                key={movie.id}
+                title={movie.name}
+                imageUrl={movie.media}
+                categories={movie.categories}
+                price={9.99}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>

@@ -28,11 +28,13 @@ model Hall {
 }
 
 model Event {
-  id      Int    @id @default(autoincrement())
-  hall    Hall?  @relation(fields: [hallId], references: [id])
-  hallId  Int?
-  movie   Movie? @relation(fields: [movieId], references: [id])
-  movieId Int?
+  id        Int      @id @default(autoincrement())
+  hall      Hall?    @relation(fields: [hallId], references: [id])
+  hallId    Int?
+  movie     Movie?   @relation(fields: [movieId], references: [id])
+  movieId   Int?
+  startTime DateTime
+  endTime   DateTime
 }
 
 model Movie {

@@ -9,9 +9,16 @@ type Event {
   media: String!
 }
 
+type Category {
+  id: String!
+  name: String
+}
+
 type Movie {
   id: String!
   name: String!
+  media: String
+  categories: [Category!]!
 }
 
 type Hall {
@@ -23,8 +30,9 @@ type Cinema {
   id: String!
   name: String!
   address: String!
-  longitude: Float!
-  latitude: Float!
+  longitude: Float
+  latitude: Float
+  media: String
   halls: [Hall!]!
 }
 

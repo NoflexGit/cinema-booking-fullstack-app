@@ -12,11 +12,14 @@ export class Cinema {
   @Field()
   address: string;
 
-  @Field()
+  @Field({ nullable: true })
   longitude: number;
 
-  @Field()
+  @Field({ nullable: true })
   latitude: number;
+
+  @Field({ nullable: true })
+  media: string;
 
   @Field((type) => [Hall])
   halls: Hall[];
