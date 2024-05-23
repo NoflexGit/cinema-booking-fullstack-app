@@ -36,6 +36,20 @@ type Cinema {
   halls: [Hall!]!
 }
 
+type HeroSlide {
+  id: String!
+  title: String!
+  subtitle: String!
+  media: String!
+  movie: Movie!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   events: [Event!]!
   eventsByTag(tag: String!): [Event!]!
@@ -46,4 +60,5 @@ type Query {
   halls: [Hall!]!
   hall(id: Float!): Hall!
   hallsByCinemaId(id: Float!): [Hall!]!
+  heroSlides: [HeroSlide!]!
 }

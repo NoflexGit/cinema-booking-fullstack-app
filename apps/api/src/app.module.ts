@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+
 import { EventModule } from './event/event.module';
 import { MovieModule } from './movie/movie.module';
 import { CinemaModule } from './cinema/cinema.module';
 import { HallModule } from './hall/hall.module';
+import { HeroSlideModule } from './heroSlide/heroSlide.module';
 
 @Module({
   imports: [
@@ -16,6 +18,7 @@ import { HallModule } from './hall/hall.module';
     MovieModule,
     CinemaModule,
     HallModule,
+    HeroSlideModule,
   ],
   providers: [],
 })

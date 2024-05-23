@@ -7,6 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model Cinema {
   id        Int     @id @default(autoincrement())
   name      String?
@@ -33,8 +38,8 @@ model Event {
   hallId    Int?
   movie     Movie?   @relation(fields: [movieId], references: [id])
   movieId   Int?
-  startTime DateTime
-  endTime   DateTime
+  startTime DateTime @default(now())
+  endTime   DateTime @default(now())
 }
 
 model Movie {
@@ -49,6 +54,7 @@ model Movie {
   event       Event[]
   CartItem    CartItem[]
   OrderItem   OrderItem[]
+  HeroSlide   HeroSlide?
 }
 
 model Category {
@@ -132,15 +138,12 @@ model OrderItem {
   movieId   Int
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
 model HeroSlide {
   id        Int      @id @default(autoincrement())
   title     String?
   subtitle  String?
   media     String?
   createdAt DateTime @default(now())
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int      @unique
 }
