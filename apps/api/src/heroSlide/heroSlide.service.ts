@@ -6,6 +6,10 @@ export class HeroSlideService {
   constructor(private prisma: PrismaService) {}
 
   async getHeroSlides() {
-    return this.prisma.heroSlide.findMany({ include: { movie: true } });
+    return this.prisma.heroSlide.findMany({
+      include: {
+        movie: true,
+      },
+    });
   }
 }

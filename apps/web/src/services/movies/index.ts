@@ -24,6 +24,17 @@ const GET_MOVIES = gql`
         name
       }
     }
+    heroSlides {
+      id
+      title
+      subtitle
+      media
+      movie {
+        id
+        media
+        name
+      }
+    }
   }
 `;
 

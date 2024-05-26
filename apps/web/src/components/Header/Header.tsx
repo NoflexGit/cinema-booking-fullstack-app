@@ -27,7 +27,7 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link className="text-white" href="/cinemas">
+                <Link className="text-white" href="/cinemas" prefetch>
                   Cinemas
                 </Link>
               </li>

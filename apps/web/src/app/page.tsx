@@ -10,8 +10,8 @@ const IndexPage = async () => {
   const data = await getMoviesData();
 
   return (
-    <div className="mt-8 space-y-8">
-      <MainSlider />
+    <div className="mt-8 space-y-16">
+      <MainSlider slides={data.heroSlides} />
       <MovieScheduleByDay movies={data.movies} />
       <Cinemas cinemas={data.cinemas} />
     </div>

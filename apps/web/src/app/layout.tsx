@@ -1,4 +1,4 @@
-import '../src/styles/globals.css';
+import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 import { ApolloWrapper } from '@/appolo/AppoloWrapper';
@@ -9,6 +9,7 @@ const urbanist = Urbanist({
   display: 'swap',
   weight: ['400', '500', '600', '700'],
 });
+
 export const metadata: Metadata = {
   title: 'Cinema Fullstack App',
   description: 'Cinema Fullstack App',

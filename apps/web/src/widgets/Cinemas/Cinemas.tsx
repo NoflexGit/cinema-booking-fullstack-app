@@ -18,7 +18,10 @@ export const Cinemas = ({ cinemas }: Props) => {
       <h3 className="text-xl font-semibold text-white">Cinemas</h3>
       <div className="flex gap-4">
         {cinemas.map((cinema: any) => (
-          <div className="group relative h-[350px] flex-1 overflow-hidden rounded-2xl shadow-xl odd:mt-12">
+          <div
+            key={cinema.id}
+            className="group relative h-[350px] flex-1 overflow-hidden rounded-2xl shadow-xl odd:mt-12"
+          >
             <Link href={`/cinemas/${cinema.id}`} key={cinema.id}>
               <div
                 className="absolute inset-0 h-full w-full bg-cover bg-center transition-transform group-hover:scale-110"

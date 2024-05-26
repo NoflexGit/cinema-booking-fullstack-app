@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { MovieCard } from "@/components/MovieCard";
-import { MOVIE_SLIDER_BREAKPOINTS } from "@/constants";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { MovieCard } from '@/components/MovieCard';
+import { MOVIE_SLIDER_BREAKPOINTS } from '@/constants';
 
 type Props = {
   movies: Array<{
@@ -19,7 +19,7 @@ type Props = {
 export const MovieScheduleByDay = ({ movies }: Props) => {
   return (
     <section className="container mx-auto px-4">
-      <h3 className="text-white text-xl font-semibold">In our cinemas</h3>
+      <h3 className="text-2xl font-semibold text-white">In our cinemas</h3>
       <div className="mt-4">
         <Swiper breakpoints={MOVIE_SLIDER_BREAKPOINTS}>
           {movies.map((movie: any) => (
